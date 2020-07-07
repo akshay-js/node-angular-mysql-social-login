@@ -1,16 +1,26 @@
 const bcrypt = require('bcrypt')
 const Sequelize = require('sequelize')
 // const sequelize = new Sequelize('mysql://localhost:roor@:3310/test_db');
-var sequelize = new Sequelize('nodelogin', 'root', '', {
+/*
+var sequelize = new Sequelize('heroku_b7aee44bf5a419e', 'bac45569cb0114', '63548a7b', {
+	// mysql is the default dialect, but you know... 
+	// for demo purporses we are defining it nevertheless :)
+	// so: we want mysql!
+	dialect: 'mysql',
+	host: 'us-cdbr-east-05.cleardb.net'
+})*/
+
+var sequelize = new Sequelize('user', 'admin', 'dsplayChris', {
 	// mysql is the default dialect, but you know...
 	// for demo purporses we are defining it nevertheless :)
 	// so: we want mysql!
-	dialect: 'mysql'
+	dialect: 'mysql',
+	host: 'dsplay.cxl8xst7sgm8.ca-central-1.rds.amazonaws.com'
 })
 const User = sequelize.define('user', {
 	email: Sequelize.STRING,
 	id: {
-		type: Sequelize.STRING,
+		type: Sequelize.INTEGER,
 		primaryKey: true
 	},
 	password: Sequelize.STRING,

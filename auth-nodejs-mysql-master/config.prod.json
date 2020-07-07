@@ -1,0 +1,10 @@
+{
+    "secret": "dsplay-secret",
+    "TWITTER_APP_ID": "WqIZsftrNEUUffsx8FPLybg4O",
+    "TWITTER_APP_SECRET": "ZgMmqX3noQF7GyNeEZoIl5fYpYuhjopupAzKvv9OTU0ruC1koy",
+    "twitterCallBAckUrl": "http://127.0.0.1:4000/api/auth/twitter/callback",
+    "JWTSECRET": "dsplay-secret",
+    "FRONT_TWITTER_REDIRECT_DASHBOARD_URL": "http://lb-dev-1468148919.ca-central-1.elb.amazonaws.com/dashboard",
+    "FRONT_TWITTER_REDIRECT_ERROR_URL": "http://lb-dev-1468148919.ca-central-1.elb.amazonaws.com/authTokenLink",
+    "FRONT_TWITTER_REDIRECT_URL_SIGNUP": "http://lb-dev-1468148919.ca-central-1.elb.amazonaws.com/authToken"
+}

@@ -2,12 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// export const environment = {
+//   production: false,
+//   FaceBookId: "321183472241700",
+//   endPoint: "http://lb-dev-1468148919.ca-central-1.elb.amazonaws.com/api/",
+//   twitterLoginUrl: 'http://lb-dev-1468148919.ca-central-1.elb.amazonaws.com/api/auth/twitter',
+//   twitterLinkUrl: 'http://lb-dev-1468148919.ca-central-1.elb.amazonaws.com/api/auth/twitterLink'
+// };
+
 export const environment = {
   production: false,
   FaceBookId: "321183472241700",
-  endPoint: "http://localhost:4000/",
-  twitterLoginUrl: 'http://127.0.0.1:4000/auth/twitter',
-  twitterLinkUrl: 'http://127.0.0.1:4000/auth/twitterLink'
+  endPoint: "http://localhost:4000/api/",
+  twitterLoginUrl: 'http://localhost:4000/api/auth/twitter',
+  twitterLinkUrl: 'http://localhost:4000/api/auth/twitterLink'
 };
 
 /*

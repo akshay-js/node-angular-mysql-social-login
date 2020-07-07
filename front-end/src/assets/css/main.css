@@ -263,7 +263,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border: 1px solid #e6e6e6;
+  /* border: 1px solid #e6e6e6; */
 }
 
 .rs1-wrap-input100,
@@ -372,7 +372,7 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: #78cc6d;
 }
 
 

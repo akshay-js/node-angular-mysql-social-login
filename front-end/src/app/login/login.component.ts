@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
             this.loginError = data.body.message;
           }
         },
-          error => this.loginError = error
+          error => this.loginError = "Invalid login details"
         );
     }
   }

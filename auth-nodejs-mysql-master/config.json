@@ -1,10 +1,9 @@
-
 {
-    "secret": "sdsd",
-    "TWITTER_APP_ID": "9C3fQCLQhpq7XKBg6Eh5SmLuZ",
-    "TWITTER_APP_SECRET": "Mf9Y15ZmgmQx66eYf1dQ20FLwYf2qPNVUX2BC6CFlbXUzUTxTg",
-    "twitterCallBAckUrl": "http://127.0.0.1:4000/auth/twitter/callback",
-    "JWTSECRET": "JWTSECRET",
+    "secret": "dsplay-secret",
+    "TWITTER_APP_ID": "WqIZsftrNEUUffsx8FPLybg4O",
+    "TWITTER_APP_SECRET": "ZgMmqX3noQF7GyNeEZoIl5fYpYuhjopupAzKvv9OTU0ruC1koy",
+    "twitterCallBAckUrl": "http://127.0.0.1:4000/api/auth/twitter/callback",
+    "JWTSECRET": "dsplay-secret",
     "FRONT_TWITTER_REDIRECT_DASHBOARD_URL": "http://localhost:4200/dashboard",
     "FRONT_TWITTER_REDIRECT_ERROR_URL": "http://localhost:4200/authTokenLink",
     "FRONT_TWITTER_REDIRECT_URL_SIGNUP": "http://localhost:4200/authToken"

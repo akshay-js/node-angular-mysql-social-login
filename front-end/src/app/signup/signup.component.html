@@ -1,3 +1,86 @@
+
+<div class class="page new-skin">
+	<div class="container opened" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
+		<div class="card-started" id="home-card">
+
+			<div class="profile no-photo">
+
+				<!-- profile image -->
+				<div class="slide" style="background-image: url(../../assets/images/bg-01.jpg);"></div>
+ 
+				<!-- profile socials -->
+				<div class="social"> 
+				</div>
+
+				<!-- profile buttons -->
+				<div class="lnks"> 
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!--
+				Card - Resume
+			-->
+		<div class="card-inner animated active" id="resume-card">
+			<div class="card-wrap"> 
+				<div class="content services">
+
+					<!-- title -->
+					<div class="title"><span class="first-word">S</span>ignup</div>
+
+					<!-- content -->
+					<div class="row service-items">
+						<div class="col ">
+							<div class="service-item">
+								<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+									<p *ngIf="loginError">{{loginError}}</p>
+									<div class="wrap-input100 validate-input m-b-20" data-validate="Type user name">
+										<input id="first-name" class="input100" type="text" formControlName="email" name="email"
+											placeholder="Email">
+										<span class="focus-input100"></span>
+									</div>
+									<div class="wrap-input100  validate-input m-b-20" data-validate="Type password">
+										<input class="input100" formControlName="password" type="password" name="password"
+											placeholder="Password">
+										<span class="focus-input100"></span>
+									</div>
+
+									<div class="wrap-input100  validate-input m-b-20">
+										<button type="submit" class="login100-form-btn">
+											Signup
+										</button>
+									</div>
+								</form>
+									<div class="wrap-input100  validate-input m-b-20">
+									<p>Signup with social</p>
+								 <a class="btn btn-default" type="button" href="javascript:void(0);" (click)="signInWithFB()"><i
+                                class="fa fa-facebook"></i> </a>
+								<a class="btn btn-default" type="button" href="{{environment.twitterLoginUrl}}"><i
+                                class="fa fa-twitter"></i> </a>
+									</div>
+
+							</div>
+						</div> 
+
+                <div class="w-full text-center  border-line-v">
+                    <a routerLink="/login" class="txt3">
+                       Back to login
+                    </a>
+						<div class="clear"></div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+</div>
+<!--
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
@@ -35,16 +118,7 @@
                         
                       </div>
                 </div>
-
-                
-                <!-- <div class="w-full text-center"> -->
-<!--                     
-                    <a href="javascript:void(0);" class="txt3" (click)="signInWithFB()">Login With Facebook</a>
-
-                    
-                    <a href="http://127.0.0.1:4000/auth/twitter" class="txt3">Login With Twitter</a> -->
-
-                <!-- </div> -->
+ 
                 <div class="w-full text-center">
                     <a routerLink="/login" class="txt3">
                         Back to Login
@@ -55,4 +129,4 @@
             <div class="login100-more" style="background-image: url('../../assets/images/bg-01.jpg');"></div>
         </div>
     </div>
-</div>
+</div> -->

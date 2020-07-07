@@ -15,9 +15,6 @@
 				<!-- profile titles -->
 				<div class="title">{{user?.full_name}}</div>
 				<div class="subtitle">{{user?.email}}</div>
-				<a (click)="signOut()" href="javascript:void(0);" class="txt3">
-					Logout
-				</a>
 				<!-- profile socials -->
 				<div class="social">
 					<!-- <a target="_blank" href="https://dribbble.com/"><span class="fab fa-dribbble"></span></a>
@@ -53,64 +50,24 @@
 				<!--
 						Resume
                     -->
-				<!-- <div class="content about">
+				<div class="content about">
  
-						<div class="title"><span class="first-word">About</span> Me</div>
+						<div class="title1"> 
+									<div style="text-align:right;" class="wrap-input100  validate-input m-b-20">
+										<button (click)="signOut()" type="button" class="login100-form-btn">
+											Logout
+										</button>
+									</div></div>
+ 
 
-
-						<div class="row">
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
-								<div class="text-box">
-									<p>
-										I am Ryan Adlard, web designer from USA, California. I have rich experience in 
-										web site design and building and customization, also I am good at wordpress. 
-										I love to talk with you about our unique.
-									</p>
-								</div>
-							</div>
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
-								<div class="info-list">
-									<ul>
-										<li><strong>Age . . . . .</strong> 24</li>
-										<li><strong>Residence . . . . .</strong> USA</li>
-										<li><strong>Freelance . . . . .</strong> Available</li>
-										<li><strong>Address . . . . .</strong> California, USA</li>
-									</ul>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-
-					</div> -->
-				<div class="content resume">
-
-
-					<div class="row">
-						<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
-							<div class="text-box">
-								<!-- title -->
-								<div class="title">Social identities</div><br /><br />
-								<a *ngIf="!user?.fb_id" href="javascript:void(0);" class="txt3 txt3f"
-									(click)="signInWithFB()"><i class="fa fa-facebook"></i> Link Facebook</a>
-									
-								<a *ngIf="user?.fb_id" href="javascript:void(0);" class="txt3 txt3f"
-									(click)="unlinkFb('facebok')"><i class="fa fa-facebook"></i> UnLink Facebook</a>
-								<br /><br />
-								<a *ngIf="!user?.tw_id" href="{{environment.twitterLinkUrl}}?t={{token}}"
-									class="txt3 txt3t"><i class="fa fa-twitter"></i> Link Twitter</a>
-								<a *ngIf="user?.tw_id" href="javascript:void(0);" (click)="unlinkFb('twitter')"
-									class="txt3 txt3t"><i class="fa fa-twitter"></i> UnLink Twitter</a>
-							</div>
-						</div>
 					</div>
-				</div>
-				<div class="content services">
+				<div class="content services" *ngIf="user?.tw_id || user?.fb_id">
 
 					<!-- title -->
 					<div class="title"><span class="first-word">My</span> Social Connected</div>
 
 					<!-- content -->
-					<div class="row service-items border-line-v">
+					<div class="row service-items {{borderClass}}">
 
 						<!-- service item -->
 						<div class="col col-d-6 col-t-6 col-m-12 border-line-h" *ngIf="user?.tw_id">
@@ -134,6 +91,32 @@
 						<div class="clear"></div>
 					</div>
 
+				</div>
+				<div class="content resume">
+
+
+					<div class="row">
+						<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+							<div class="text-box">
+								<!-- title -->
+								<div class="title">Social identities</div><br /><br />
+								<a *ngIf="!user?.fb_id" href="javascript:void(0);" class="txt3 txt3f"
+									(click)="signInWithFB()"><i class="fa fa-facebook"></i> Link Facebook</a>
+									
+								<a *ngIf="user?.fb_id" href="javascript:void(0);" class="txt3 txt3f"
+									(click)="unlinkFb('facebok')"><i class="fa fa-facebook"></i> UnLink Facebook</a>
+								<br />
+								<a *ngIf="!user?.tw_id" href="{{environment.twitterLinkUrl}}?t={{token}}"
+									class="txt3 txt3t"><i class="fa fa-twitter"></i> Link Twitter</a>
+								<a *ngIf="user?.tw_id" href="javascript:void(0);" (click)="unlinkFb('twitter')"
+									class="txt3 txt3t"><i class="fa fa-twitter"></i> UnLink Twitter</a>
+								<br/>
+								<a href="javascript:void(0);" class="txt3 txt3t"><img style="border-radius: 50%;" width="20" src="../../assets/images/io2.jpeg" /> Link IOT</a><br/>
+								<a href="javascript:void(0);" style="margin-left: -2px" class="txt3 txt3t"><img width="20" src="../../assets/images/google-home.jpeg" /> Link Google Home</a><br/>
+								<a href="javascript:void(0);" class="txt3 txt3t" style="margin-left: -3px"><img width="20" src="../../assets/images/iot.jpeg" /> Link Apple watch</a>
+							</div>
+						</div>
+					</div>
 				</div>
 
 			</div>

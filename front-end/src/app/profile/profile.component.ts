@@ -22,7 +22,8 @@ export class ProfileComponent implements OnInit {
   user: any;
   loginError: any;
   token: string = this.cookieService.get('currentUser');
-
+  borderClass ='';
+  
   profileImage: string;
 
   ngOnInit(): void {
@@ -46,6 +47,10 @@ export class ProfileComponent implements OnInit {
   getProfile() {
     this.apiService.getProfile().subscribe((res) => {
       this.user = res.data;
+	  
+	  if(this.user.fb_id && this.user.tw_id){
+		this.borderClass = 'border-line-v';
+	  }
       this.profileImage = (res.data['image']) ? res.data['image'] : ((res.data['twitter_image']) ? res.data['twitter_image'] : '../../assets/images/no-image.jpg');
     })
   }
@@ -63,8 +68,9 @@ export class ProfileComponent implements OnInit {
   signOut(): void {
 
     this.apiService.logout();
-    this.authService.signOut().then(() => {
-      this.apiService.logout();
-    });
+
+//    this.authService.signOut().then(() => {
+  //    this.apiService.logout();
+    //});
   }
 }

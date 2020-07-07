@@ -84,7 +84,11 @@ export class SignupComponent implements OnInit {
             this.loginError = data.body.message;
           }
         },
-          error => this.loginError = error.error
+          error => {
+            console.log(error);
+            
+            this.loginError = error['error'].error;
+          }
         );
     }
   }

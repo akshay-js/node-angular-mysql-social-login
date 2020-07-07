@@ -6,7 +6,10 @@ const User = require("./models/user");
 const jwt = require('jwt-simple')
 
 const config = require("./config.json");
+var path 		 = require('path');
 
+const mustacheExpress = require('mustache-express');
+	
 passport.use(passportStrategies.jwt)
 passport.use(passportStrategies.local)
 
@@ -15,19 +18,27 @@ const requireSignin = passport.authenticate('local', { session: false })
 
 module.exports = (app) => {
 
-  app.get('/', requireAuth, (req, res) => res.send({ hi: 'there' }))
-  app.post('/signup', Authentication.signup)
-  app.post('/socialLogin', Authentication.socialLogin)
-  app.post('/signin', requireSignin, Authentication.signin)
 
-  app.get('/getProfile', requireAuth, Authentication.loginByToken)
-  app.get('/unlinkFb', requireAuth, Authentication.unlinkFb)
 
-  app.post('/linkFb', requireAuth, Authentication.linkFb)
 
-  app.get('/auth/twitter', passport.authenticate('twitter'));
+	app.engine('html', mustacheExpress());
 
-  app.get('/auth/twitterLink', function (req, res, next) {
+	app.set('view engine', 'html');
+	app.set('views',path.join(__dirname, 'views'));
+
+  
+  app.post('/api/signup', Authentication.signup)
+  app.post('/api/socialLogin', Authentication.socialLogin)
+  app.post('/api/signin', requireSignin, Authentication.signin)
+
+  app.get('/api/getProfile', requireAuth, Authentication.loginByToken)
+  app.get('/api/unlinkFb', requireAuth, Authentication.unlinkFb)
+
+  app.post('/api/linkFb', requireAuth, Authentication.linkFb)
+
+   app.get('/api/auth/twitter', passport.authenticate('twitter'));
+
+  app.get('/api/auth/twitterLink', function (req, res, next) {
     if (req.query.t) {
       var reqId = req.query.t;
       // states[reqId] = {
@@ -40,7 +51,7 @@ module.exports = (app) => {
     passport.authenticate('twitter')(req, res, next);
   });
 
-  app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }),
+  app.get('/api/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }),
     function (req, res) {
 
       var reqId = req.session.state;
@@ -104,7 +115,6 @@ module.exports = (app) => {
         })
 
       }
-
       // Successful authentication, redirect home.
     });
 
@@ -116,5 +126,12 @@ module.exports = (app) => {
   app.post('/sms', (req, res) => {
     const run = smsParser(req.body.message)
     res.status(200).send({ events: [] })
-  })
+  });
+  
+  
+  // app.get('*', function(req, res){
+	//   res.render('index');
+	  
+	//   //res.send({ hi: 'there' })	 
+  // });
 }
